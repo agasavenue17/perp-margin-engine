@@ -1,17 +1,18 @@
-```yaml
 name: Tests
+
 on:
-push:
-branches: [main]
-pull_request:
-branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
-test:
-runs-on: ubuntu-latest
-steps:
-- uses: actions/checkout@v4
-- uses: foundry-rs/foundry-toolchain@v1
-- name: Build
-run: forge build
-- name: Test
-run: forge test -vv
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+      - name: Build
+        run: forge build
+      - name: Test
+        run: forge test -vv
